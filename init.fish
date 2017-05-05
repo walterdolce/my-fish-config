@@ -1,7 +1,7 @@
 
 set -x SVN_EDITOR vi
 set -xg EDITOR vi
-set -x GPG_TTY (tty)
+set -xg GPG_TTY (tty)
 
 set -g theme_avoid_ambiguous_glyphs yes
 set -g theme_display_cmd_duration yes
