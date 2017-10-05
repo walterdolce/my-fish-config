@@ -17,9 +17,9 @@ set -g theme_title_display_process yes
 set -g theme_title_use_abbreviated_path yes
 set -g theme_nerd_fonts yes
 
-for i in /usr/local/sbin $HOME/.rbenv/shims
+for i in /usr/local/sbin $HOME/.rbenv/shims $HOME/.local/bin
     if not contains $i $PATH
-        echo "Adding $i to PATH ($PATH)"
+        echo "[my-omf-config] Adding $i to PATH ($PATH)"
         set PATH $i $PATH
    end
 end
