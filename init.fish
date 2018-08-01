@@ -1,3 +1,6 @@
+function output
+    echo "[my-omf-config] $argv"
+end
 
 set -x SVN_EDITOR vi
 set -xg EDITOR vi
@@ -17,12 +20,22 @@ set -g theme_title_display_process yes
 set -g theme_title_use_abbreviated_path yes
 set -g theme_nerd_fonts yes
 
-for i in /usr/local/sbin $HOME/.goenv/shims $HOME/.rbenv/shims $HOME/.local/bin
-    if not contains $i $PATH
-        echo "[my-omf-config] Adding $i to PATH ($PATH)"
+set ADDITIONAL_PATHS '/usr/local/sbin' "$HOME/.goenv/shims" "$HOME/.rbenv/shims" "$HOME/.local/bin"
+
+for additional_path in $ADDITIONAL_PATHS
+    output "Checking whether '$additional_path' exists..."
+
+    if not test -d $additional_path
+        output "'$additional_path' does not exist. It won't be added to the PATH variable."
+        continue
+    else
+        output "'$additional_path' exists. Will add to PATH."
+    end
+
+    if not contains $additional_path $PATH
+        output "Adding '$additional_path' to PATH ($PATH)."
         set PATH $i $PATH
    end
 end
 
 rbenv rehash >/dev/null ^&1
-
