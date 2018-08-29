@@ -22,6 +22,8 @@ set -g theme_display_virtualenv yes
 set -g theme_title_display_process yes
 set -g theme_title_use_abbreviated_path yes
 set -g theme_nerd_fonts yes
+set -g theme_display_k8s_context yes
+set -g theme_display_hostname yes
 
 set ADDITIONAL_PATHS '/usr/local/sbin' "$HOME/.goenv/shims" "$HOME/.rbenv/shims" "$HOME/.local/bin"
 
