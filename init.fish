@@ -2,6 +2,15 @@ function output
     echo "[my-omf-config] $argv"
 end
 
+function commit-with
+    git commit -m "$argv[1..-1]"
+end
+
+function commit-with-and-push-to
+    commit-with $argv[1..-2]
+    git push origin $argv[-1]
+end
+
 set -x SVN_EDITOR vi
 set -xg EDITOR vi
 set -xg GPG_TTY (tty)
