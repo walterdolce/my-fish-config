@@ -14,6 +14,7 @@ end
 set -x SVN_EDITOR vi
 set -xg EDITOR vi
 set -xg GPG_TTY (tty)
+set -xg PIPENV_VENV_IN_PROJECT 1
 
 set -g theme_display_git yes
 set -g theme_display_git_untracked yes
