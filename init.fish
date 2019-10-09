@@ -54,4 +54,4 @@ for additional_path in $ADDITIONAL_PATHS
 end
 
 rbenv rehash >/dev/null ^&1
-status --is-interactive; and source (pyenv init -|psub)
+status --is-interactive; and source (pyenv init -|psub); and source (goenv init -|psub)
